@@ -7,9 +7,8 @@ pipeline {
             }
         }
         stage('copy') {
-          steps {
-                sh "cd /var/lib/jenkins/workspace/Java_Job/target/"
-                sh "cp sparkjava-hello-world-1.0.war /var/lib/tomcat9/webapps/"
+           steps {
+                sh "cp /var/lib/jenkins/workspace/Java_Job/target/sparkjava-hello-world-1.0.war /var/lib/tomcat9/webapps/"
             }
         }
     }
