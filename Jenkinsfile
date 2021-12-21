@@ -3,9 +3,7 @@ pipeline {
     stages {
         stage('Build') 
         {
-          steps 
-            {
-                sh "cd /var/lib/jenkins/workspace/java/"
+          steps {
                 sh "mvn clean install"
             }
         stage('copy') {
@@ -15,12 +13,12 @@ pipeline {
                 sh "mvn clean install"
             }
 
-            post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                success {
-                    echo "hello"
-                }
+    post {
+        // If Maven was able to run the tests, even if some of the test
+        // failed, record the test results and archive the jar file.
+            success {
+                echo "hello"
+            }
             }
         }
     }
