@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage ("clean"){
+            steps{
+                cleanWs()
+            }
+        }
         stage('Build') {
           steps {
                 sh "mvn clean install"
@@ -8,7 +13,7 @@ pipeline {
         }
         stage('copy') {
           steps {
-                sh "cd /var/lib/jenkins/workspace/java/"
+                sh "cd /var/lib/jenkins/workspace/Java_Job/target/"
                 sh "cp sparkjava-hello-world-1.0.war /var/lib/tomcat9/webapps/"
             }
         }
