@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-	    string(name:'FROM_BUILD', defaultValue: '', descriptions: 'build source')
+	    string(name:'FROM_BUILD', defaultValue: '', description: 'build source')
     }
     stages {
         stage('begin') {
