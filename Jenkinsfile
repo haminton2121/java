@@ -4,7 +4,6 @@ pipeline {
 	    string(name:'FROM_BUILD', defaultValue: '', description: 'build source')
     }
     stages {
-        }
         stage('Build') {
           steps {
                 sh "mvn clean install"
