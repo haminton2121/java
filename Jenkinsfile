@@ -4,6 +4,11 @@ pipeline {
 	    string(name:'FROM_BUILD', defaultValue: '', descriptions: 'build source')
     }
     stages {
+        stage('begin') {
+          steps {
+                cleanWs()
+            }
+        }
         stage('Build') {
           steps {
                 sh "mvn clean install"
@@ -19,7 +24,7 @@ pipeline {
     }
 	post {
 		always {
-			cleanWs()
+			echo "Successful"
 		}
 	}
 }
