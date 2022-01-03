@@ -4,10 +4,6 @@ pipeline {
 	    string(name:'FROM_BUILD', defaultValue: '', description: 'build source')
     }
     stages {
-        stage('begin') {
-          steps {
-                cleanWs()
-            }
         }
         stage('Build') {
           steps {
@@ -25,6 +21,7 @@ pipeline {
 	post {
 		always {
 			echo "Successful"
+			cleanWs()
 		}
 	}
 }
